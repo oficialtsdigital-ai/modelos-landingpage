@@ -1,0 +1,9 @@
+{
+  "name": "ts-digital-catalogo-personais",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node ferramentas/preparar-publicacao.cjs",
+    "deploy": "npm run build && npx wrangler deploy"
+  }
+}

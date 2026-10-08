@@ -1,0 +1,6 @@
+{
+  "name": "personal-odam",
+  "compatibility_date": "2025-01-01",
+  "build": { "command": "node ferramentas/preparar-publicacao.cjs" },
+  "assets": { "directory": "./publicar" }
+}

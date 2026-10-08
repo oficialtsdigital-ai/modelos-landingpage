@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modelo 01 — Studio Personal</title>
+<meta name="description" content="Modelo demonstrativo de landing page para personal trainer.">
+
+<link rel="stylesheet" href="../compartilhado/modelos.css">
+</head>
+<body>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:'Manrope',system-ui,sans-serif;background:#232936}
+a{color:inherit;text-decoration:none}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+.od-card{transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.od-card:hover{transform:translateY(-4px);border-color:rgba(0,177,135,.55)!important;background:rgba(255,255,255,.06)!important}
+.od-link{transition:color .2s ease}
+.od-link:hover{color:#00b187}
+.od-shimmer{position:relative;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}
+.od-shimmer:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,177,135,.35)}
+.od-shimmer::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:od-shine 3.2s ease-in-out infinite}
+.od-ghost{transition:background .2s ease,border-color .2s ease}
+.od-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)!important}
+.od-marquee{display:flex;width:max-content;animation:od-scroll 32s linear infinite}
+.od-beam{position:relative;overflow:hidden}
+.od-beam::before{content:"";position:absolute;inset:-60%;background:conic-gradient(from 0deg,transparent 0 68%,#00b187 84%,transparent 100%);animation:od-spin 6s linear infinite}
+.od-beam-in{position:relative;margin:2px}
+.od-glow{animation:od-pulse 5s ease-in-out infinite}
+.od-gradtext{background:linear-gradient(90deg,#00b187,#7ff0cf,#00b187);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:od-grad 6s linear infinite}
+.od-faq[open] .od-plus{transform:rotate(45deg)}
+.od-plus{transition:transform .2s ease}
+@keyframes od-shine{0%{left:-60%}60%,100%{left:130%}}
+@keyframes od-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes od-spin{to{transform:rotate(360deg)}}
+@keyframes od-pulse{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes od-grad{to{background-position:200% center}}
+@media (prefers-reduced-motion:reduce){.od-marquee,.od-beam::before,.od-glow,.od-gradtext,.od-shimmer::after{animation:none}}
+/* Responsive layout */
+html{scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+svg{flex-shrink:0}
+section[id]{scroll-margin-top:20px}
+@media(max-width:1024px){
+ #topo h1{font-size:clamp(48px,7vw,72px)!important}
+ #topo>div:last-child{gap:36px!important;padding-top:48px!important;padding-bottom:64px!important}
+ #sobre{gap:36px!important}
+}
+@media(max-width:767px){
+ aside{padding:12px 20px!important;font-size:12px!important;text-align:left!important}
+ header{padding:20px!important;gap:16px!important}
+ header>a:first-child{font-size:25px!important}
+ header>a:last-child{padding:10px 14px!important;font-size:12px!important;min-height:44px;display:flex;align-items:center;justify-content:center}
+ header nav{order:3;width:100%;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px!important;font-size:12px!important;text-align:center}
+ header nav a{display:flex;align-items:center;justify-content:center;min-height:44px}
+ h1{overflow-wrap:break-word}
+ h2{font-size:38px!important;line-height:1.08!important;overflow-wrap:break-word}
+ h3{font-size:26px!important}
+ p{font-size:16px!important;line-height:1.7!important}
+ #topo>div:last-child{display:flex!important;flex-direction:column;align-items:stretch!important;padding:36px 20px 48px!important;gap:32px!important}
+ #topo>div:last-child>div{flex:0 1 auto!important;width:100%;gap:22px!important}
+ #topo h1{font-size:clamp(42px,11.5vw,62px)!important;line-height:1.02!important}
+ #topo>div:last-child>div:first-child>div:first-child{font-size:11px!important;letter-spacing:.03em!important;padding:8px 12px!important;line-height:1.5}
+ #topo>div:last-child>div:first-child>div:first-child>span{flex-shrink:0}
+ #topo>div:last-child>div:first-child>div:nth-of-type(2),#contato>div:last-child>div{display:flex!important;flex-direction:column;align-items:stretch!important;width:100%;gap:12px!important}
+ #topo .od-shimmer,#topo .od-ghost,#contato .od-shimmer,#contato .od-ghost{width:100%;justify-content:center;text-align:center;padding:16px 20px!important;min-height:52px;font-size:15px!important}
+ #topo>div:last-child>div:first-child>div:last-child{display:grid!important;grid-template-columns:1fr;gap:12px!important;padding-top:0!important;font-size:13px!important}
+ #topo .od-beam{max-width:100%!important}
+ #topo .od-beam-in{height:320px!important;padding:20px!important}
+ .od-marquee{font-size:23px!important}
+ .od-marquee>span{gap:22px!important;padding-right:22px!important}
+ #sobre,#metodo,#planos{padding:56px 20px!important;gap:28px!important}
+ #sobre{flex-direction:column;align-items:stretch!important}
+ #sobre>div{flex:0 1 auto!important;width:100%}
+ #sobre>div:last-child{order:-1;gap:20px!important}
+ #sobre>div:first-child>div{height:280px!important}
+ #sobre>div:last-child>div{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px!important}
+ #sobre>div:last-child>div>div{padding:16px!important}
+ #sobre>div:last-child>div>div:last-child{grid-column:1/-1}
+ #sobre>div:last-child>div>div>div:first-child{font-size:36px!important}
+ #servicos>div,#resultados>div,#duvidas>div{padding:56px 20px!important;gap:28px!important}
+ #servicos>div>div:last-child,#metodo>div:last-child,#resultados>div>div:last-child,#planos>div:last-child,#antes-depois>div:last-child{display:grid!important;grid-template-columns:minmax(0,1fr);gap:16px!important}
+ .od-card,#metodo>div:last-child>div,#resultados figure,#planos>div:last-child>div:not(.od-beam),#planos .od-beam-in{padding:24px!important}
+ #metodo>div:last-child>div>div:first-child{font-size:48px!important}
+ #metodo h3{font-size:20px!important}
+ #resultados blockquote{font-size:15px!important;line-height:1.75!important}
+ #resultados figcaption>span:last-child{line-height:1.6;overflow-wrap:break-word}
+ #antes-depois{padding:56px 20px 0!important;gap:28px!important}
+ #antes-depois>div:last-child>div>div>div>div{height:230px!important}
+ #planos>div:last-child>div{width:100%}
+ #planos .od-beam-in{height:calc(100% - 4px)!important}
+ #planos h3{font-size:25px!important}
+ #planos a{min-height:50px;display:flex;align-items:center;justify-content:center}
+ #duvidas details{padding:4px 18px!important}
+ #duvidas summary{font-size:16px!important;line-height:1.5;min-height:64px}
+ #contato>div:last-child{padding:64px 20px!important;gap:24px!important}
+ #contato h2{font-size:44px!important}
+ #contato>div:last-child>span{font-size:12px!important;line-height:1.6}
+ footer>div{padding:28px 20px!important;flex-direction:column;align-items:flex-start!important;gap:14px!important;font-size:13px!important}
+}
+@media(max-width:359px){
+ header>a:last-child{width:100%;font-size:13px!important}
+ #topo h1{font-size:40px!important}
+ #sobre>div:last-child>div{grid-template-columns:1fr}
+ #sobre>div:last-child>div>div:last-child{grid-column:auto}
+ #planos .od-beam-in>div:first-child{flex-wrap:wrap}
+}
+</style>
+
+<div style="--accent: #00b187; --ground: #2d3443; width: 100%; background: var(--ground); color: #f4f6f8; font-family: 'Manrope', system-ui, sans-serif; overflow: hidden">
+
+<aside style="padding: 12px 24px; background: rgba(0,177,135,.12); border-bottom: 1px solid rgba(0,177,135,.25); text-align: center; font-size: 13px; line-height: 1.6; color: #c4ccd8"><strong style="color: #5fe3bd">Prévia para apresentação.</strong> Informações do perfil fornecido + conteúdo ilustrativo. Planos, valores, serviços e relatos fictícios serão definidos.</aside><!-- NAV -->
+<header style="position: relative; z-index: 3; max-width: 1200px; margin: 0 auto; padding: 22px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#topo" style="display: flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: 0.04em; text-transform: uppercase">
+<span style="width: 34px; height: 34px; border-radius: 9px; background: var(--accent); color: #0f1319; display: inline-flex; align-items: center; justify-content: center; font-size: 16px">PT</span>
+<span data-field="brandName">Studio Personal</span>
+</a>
+<nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 15px; font-weight: 600; color: #c4ccd8">
+<a class="od-link" href="#sobre">Sobre</a>
+<a class="od-link" href="#servicos">Serviços</a>
+<a class="od-link" href="#metodo">Método</a>
+<a class="od-link" href="#planos">Planos</a>
+<a class="od-link" href="#duvidas">Dúvidas</a>
+</nav>
+<a data-whatsapp class="od-ghost" href="#contato" style="padding: 12px 22px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); font-weight: 700; font-size: 14px; min-height: 20px">Agendar avaliação</a>
+</header>
+
+<!-- HERO -->
+<section id="topo" style="position: relative; background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px); background-size: 26px 26px">
+<div class="od-glow" style="position: absolute; top: -120px; right: -80px; width: 560px; height: 560px; border-radius: 50%; background: radial-gradient(circle, rgba(0,177,135,.38), transparent 68%)"></div>
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 72px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<div style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(0,177,135,.4); background: rgba(0,177,135,.1); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #5fe3bd">
+<span style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent)"></span>
+Marina Costa · Personal Trainer
+</div>
+<h1 data-field="heroTitle" style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 88px; line-height: 0.96; letter-spacing: -0.005em; text-transform: uppercase">Treino feito pra você.<br>Resultado que dá pra ver.</h1>
+<p data-field="heroDescription" style="margin: 0; font-size: 19px; line-height: 1.65; color: #b9c2d0; max-width: 560px">Treinos personalizados, acompanhamento e um plano alinhado à sua rotina. Conheça uma proposta para transformar seus objetivos em constância.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center">
+<a data-whatsapp class="od-shimmer" href="#contato" style="display: inline-flex; align-items: center; gap: 10px; padding: 18px 32px; border-radius: 14px; background: var(--accent); color: #0d1218; font-weight: 800; font-size: 16px">
+Quero começar agora
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a class="od-ghost" href="#metodo" style="display: inline-flex; align-items: center; padding: 18px 28px; border-radius: 14px; border: 1px solid rgba(255,255,255,.22); font-weight: 700; font-size: 16px">Conhecer o método</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 28px; padding-top: 8px; color: #b9c2d0; font-size: 14px; font-weight: 600">
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Avaliação inicial</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Plano individual</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Acompanhamento contínuo</span>
+</div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; display: flex; justify-content: center">
+<div class="od-beam" style="width: 100%; max-width: 460px; border-radius: 28px">
+<div class="od-beam-in" style="border-radius: 26px; height: 560px; background-color: color-mix(in srgb, var(--ground) 70%, black); background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 14px, transparent 14px 28px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; padding: 24px; box-sizing: border-box">
+<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
+<span style="font-weight: 700; font-size: 15px; color: #c4ccd8"><span data-field="photoLabel">FOTO PROFISSIONAL (PERSONAL)</span></span>
+<span style="font-size: 13px; color: #8f99a9">Foto oficial a definir</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MARQUEE -->
+<section aria-label="Especialidades" style="border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); background: color-mix(in srgb, var(--ground) 72%, black); overflow: hidden; padding: 22px 0">
+<div class="od-marquee" style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 30px; text-transform: uppercase; letter-spacing: 0.06em; color: #8f99a9; white-space: nowrap">
+<span style="display: flex; align-items: center; gap: 36px; padding-right: 36px"><span>Emagrecimento</span><span style="color: var(--accent)">/</span><span>Hipertrofia</span><span style="color: var(--accent)">/</span><span>Condicionamento</span><span style="color: var(--accent)">/</span><span>Saúde e mobilidade</span><span style="color: var(--accent)">/</span><span>Treino feminino</span><span style="color: var(--accent)">/</span></span>
+<span aria-hidden="true" style="display: flex; align-items: center; gap: 36px; padding-right: 36px"><span>Emagrecimento</span><span style="color: var(--accent)">/</span><span>Hipertrofia</span><span style="color: var(--accent)">/</span><span>Condicionamento</span><span style="color: var(--accent)">/</span><span>Saúde e mobilidade</span><span style="color: var(--accent)">/</span><span>Treino feminino</span><span style="color: var(--accent)">/</span></span>
+</div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div style="flex: 1 1 360px; min-width: 0">
+<div style="border-radius: 24px; border: 1px solid rgba(255,255,255,.1); height: 480px; background-color: color-mix(in srgb, var(--ground) 70%, black); background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.04) 0 14px, transparent 14px 28px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; padding: 24px; box-sizing: border-box">
+<span style="font-weight: 700; font-size: 15px; color: #c4ccd8">FOTO DO PROFISSIONAL</span>
+<span style="font-size: 13px; color: #8f99a9">Foto oficial no ambiente de treino a escolher</span>
+</div>
+</div>
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<span style="font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent)">Quem vai te acompanhar</span>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 56px; line-height: 1.02; text-transform: uppercase"><span data-field="coachName">Marina Costa</span><br><span data-field="specialty">Personal Trainer</span></h2>
+<p data-field="about" style="margin: 0; font-size: 17px; line-height: 1.75; color: #b9c2d0">Marina Costa é uma personagem fictícia para demonstrar este modelo. A apresentação, a experiência e os diferenciais serão adaptados às informações do profissional.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; padding-top: 6px">
+<div style="flex: 1 1 150px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04)">
+<div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 44px; color: var(--accent); line-height: 1">10 anos*</div>
+<div style="font-size: 14px; color: #b9c2d0; margin-top: 6px">de experiência · exemplo</div>
+</div>
+<div style="flex: 1 1 150px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04)">
+<div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 44px; color: var(--accent); line-height: 1">+200*</div>
+<div style="font-size: 14px; color: #b9c2d0; margin-top: 6px">alunas · exemplo</div>
+</div>
+<div style="flex: 1 1 150px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04)">
+<div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 44px; color: var(--accent); line-height: 1">Treino</div>
+<div style="font-size: 14px; color: #b9c2d0; margin-top: 6px">+ dieta para definição</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Conteúdo demonstrativo; substitua por informações reais. --><!-- SERVIÇOS -->
+<section id="servicos" style="background: color-mix(in srgb, var(--ground) 72%, black); border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; display: flex; flex-direction: column; gap: 56px">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent)">Serviços</span>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 56px; line-height: 1.02; text-transform: uppercase">O treino certo para a sua meta</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #b9c2d0">Cada mulher tem uma rotina e um objetivo. Estas modalidades são exemplos para apresentar a proposta; a oferta final será definida.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div class="od-card" style="flex: 2 1 420px; min-width: 0; padding: 36px; border-radius: 22px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); display: flex; flex-direction: column; gap: 16px; background-image: radial-gradient(circle at 100% 0%, rgba(0,177,135,.18), transparent 55%)">
+<div style="width: 52px; height: 52px; border-radius: 14px; background: rgba(0,177,135,.14); display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5v11M17.5 6.5v11M3 9v6M21 9v6M6.5 12h11"></path></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 32px; text-transform: uppercase">Treino para definição</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.7; color: #b9c2d0">Exemplo de serviço: treino estruturado para mulheres, com exercícios e progressões adaptados ao objetivo e à rotina.</p>
+</div>
+<div class="od-card" style="flex: 1 1 280px; min-width: 0; padding: 36px; border-radius: 22px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); display: flex; flex-direction: column; gap: 16px">
+<div style="width: 52px; height: 52px; border-radius: 14px; background: rgba(0,177,135,.14); display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 32px; text-transform: uppercase">Consultoria online</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.7; color: #b9c2d0">Planilha de treino, vídeos de execução e suporte para quem treina em qualquer lugar.</p>
+</div>
+<div class="od-card" style="flex: 1 1 280px; min-width: 0; padding: 36px; border-radius: 22px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); display: flex; flex-direction: column; gap: 16px">
+<div style="width: 52px; height: 52px; border-radius: 14px; background: rgba(0,177,135,.14); display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"></path></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 32px; text-transform: uppercase">Treino + dieta</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.7; color: #b9c2d0">Proposta ilustrativa de integração entre treino e alimentação. Formato e profissionais envolvidos serão definidos.</p>
+</div>
+<div class="od-card" style="flex: 2 1 420px; min-width: 0; padding: 36px; border-radius: 22px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); display: flex; flex-direction: column; gap: 16px">
+<div style="width: 52px; height: 52px; border-radius: 14px; background: rgba(0,177,135,.14); display: flex; align-items: center; justify-content: center">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18M6 20V10M12 20V4M18 20v-7"></path></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 32px; text-transform: uppercase">Cursos e capacitações</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.7; color: #b9c2d0">Uma área para apresentar os cursos e as capacitações mencionados no perfil. Temas, formatos, datas e inscrições serão definidos.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MÉTODO -->
+<section id="metodo" style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; display: flex; flex-direction: column; gap: 56px">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent)">Como funciona</span>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 56px; line-height: 1.02; text-transform: uppercase">Do primeiro contato ao resultado, em 4 passos</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 20px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03)">
+<div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 64px; line-height: 1; color: var(--accent)">01</div>
+<h3 style="margin: 0; font-size: 20px; font-weight: 800">Conversa e avaliação</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.7; color: #b9c2d0">Entendo sua meta, sua rotina, lesões e histórico de treino.</p>
+</div>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 20px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03)">
+<div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 64px; line-height: 1; color: var(--accent)">02</div>
+<h3 style="margin: 0; font-size: 20px; font-weight: 800">Plano sob medida</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.7; color: #b9c2d0">Monto seu treino com frequência, carga e exercícios que cabem na sua vida.</p>
+</div>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 20px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03)">
+<div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 64px; line-height: 1; color: var(--accent)">03</div>
+<h3 style="margin: 0; font-size: 20px; font-weight: 800">Acompanhamento de perto</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.7; color: #b9c2d0">Correção de execução, ajustes constantes e suporte entre os treinos.</p>
+</div>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 20px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03)">
+<div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 64px; line-height: 1; color: var(--accent)">04</div>
+<h3 style="margin: 0; font-size: 20px; font-weight: 800">Medimos a evolução</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.7; color: #b9c2d0">Reavaliações periódicas mostram o que funcionou e o que ajustar.</p>
+</div>
+</div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="resultados" style="background: color-mix(in srgb, var(--ground) 72%, black); border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; display: flex; flex-direction: column; gap: 56px">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent)">Resultados</span>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 56px; line-height: 1.02; text-transform: uppercase">O que as alunas poderiam dizer</h2><p style="margin: 0; color: #b9c2d0; font-size: 15px; line-height: 1.7">Relatos fictícios para demonstrar o layout. Não são depoimentos reais.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<figure style="flex: 1 1 300px; min-width: 0; margin: 0; padding: 32px; border-radius: 20px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); display: flex; flex-direction: column; gap: 22px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="var(--accent)" aria-hidden="true"><path d="M4 18v-6c0-4 2-7 6-8l1 2c-2 .8-3 2.200-3 4h3v8H4zm10 0v-6c0-4 2-7 6-8l1 2c-2 .8-3 2.200-3 4h3v8h-7z"></path></svg>
+<blockquote style="margin: 0; font-size: 16px; line-height: 1.75; color: #d4dae4">“Eu treinava sem uma direção. Ter um plano organizado me ajudou a encaixar os treinos na rotina e acompanhar minha evolução.”</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span style="width: 42px; height: 42px; border-radius: 50%; background: rgba(0,177,135,.2)"></span>
+<span style="font-size: 14px; font-weight: 700">Mariana · personagem fictícia<br><span style="font-weight: 500; color: #8f99a9">Constância na rotina · exemplo</span></span>
+</figcaption>
+</figure>
+<figure style="flex: 1 1 300px; min-width: 0; margin: 0; padding: 32px; border-radius: 20px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); display: flex; flex-direction: column; gap: 22px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="var(--accent)" aria-hidden="true"><path d="M4 18v-6c0-4 2-7 6-8l1 2c-2 .8-3 2.200-3 4h3v8H4zm10 0v-6c0-4 2-7 6-8l1 2c-2 .8-3 2.200-3 4h3v8h-7z"></path></svg>
+<blockquote style="margin: 0; font-size: 16px; line-height: 1.75; color: #d4dae4">“O que mais gostei foi entender o propósito de cada treino. Ficou mais fácil manter a constância e me sentir confiante na academia.”</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span style="width: 42px; height: 42px; border-radius: 50%; background: rgba(0,177,135,.2)"></span>
+<span style="font-size: 14px; font-weight: 700">Camila · personagem fictícia<br><span style="font-weight: 500; color: #8f99a9">Confiança nos treinos · exemplo</span></span>
+</figcaption>
+</figure>
+<figure style="flex: 1 1 300px; min-width: 0; margin: 0; padding: 32px; border-radius: 20px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); display: flex; flex-direction: column; gap: 22px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="var(--accent)" aria-hidden="true"><path d="M4 18v-6c0-4 2-7 6-8l1 2c-2 .8-3 2.200-3 4h3v8H4zm10 0v-6c0-4 2-7 6-8l1 2c-2 .8-3 2.200-3 4h3v8h-7z"></path></svg>
+<blockquote style="margin: 0; font-size: 16px; line-height: 1.75; color: #d4dae4">“Mesmo com uma rotina corrida, consegui reservar um tempo para cuidar de mim. Um acompanhamento próximo faz diferença na motivação.”</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span style="width: 42px; height: 42px; border-radius: 50%; background: rgba(0,177,135,.2)"></span>
+<span style="font-size: 14px; font-weight: 700">Juliana · personagem fictícia<br><span style="font-weight: 500; color: #8f99a9">Mais motivação · exemplo</span></span>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<!-- ANTES E DEPOIS -->
+<section id="antes-depois" style="max-width: 1200px; margin: 0 auto; padding: 112px 24px 0; display: flex; flex-direction: column; gap: 48px">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent)">Antes e depois</span>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 56px; line-height: 1.02; text-transform: uppercase">Espaço para histórias de evolução</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #b9c2d0">Exemplos fictícios de como apresentar as histórias. As fotos e os resultados reais serão definidos e publicados com autorização das alunas.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 8px">
+<div style="flex: 1 1 0; min-width: 0; height: 340px; border-radius: 16px 4px 4px 16px; border: 1px solid rgba(255,255,255,.1); background-color: color-mix(in srgb, var(--ground) 70%, black); background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 12px, transparent 12px 24px); display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box"><span style="padding: 5px 10px; border-radius: 999px; background: rgba(0,0,0,.55); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Antes</span></div>
+<div style="flex: 1 1 0; min-width: 0; height: 340px; border-radius: 4px 16px 16px 4px; border: 1px solid rgba(0,177,135,.45); background-color: color-mix(in srgb, var(--ground) 70%, black); background-image: repeating-linear-gradient(135deg, rgba(0,177,135,.08) 0 12px, transparent 12px 24px); display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box"><span style="padding: 5px 10px; border-radius: 999px; background: var(--accent); color: #0d1218; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Depois</span></div>
+</div>
+<span style="font-size: 14px; color: #b9c2d0; font-weight: 600">Mariana · 3 meses · exemplo fictício</span>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 8px">
+<div style="flex: 1 1 0; min-width: 0; height: 340px; border-radius: 16px 4px 4px 16px; border: 1px solid rgba(255,255,255,.1); background-color: color-mix(in srgb, var(--ground) 70%, black); background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 12px, transparent 12px 24px); display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box"><span style="padding: 5px 10px; border-radius: 999px; background: rgba(0,0,0,.55); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Antes</span></div>
+<div style="flex: 1 1 0; min-width: 0; height: 340px; border-radius: 4px 16px 16px 4px; border: 1px solid rgba(0,177,135,.45); background-color: color-mix(in srgb, var(--ground) 70%, black); background-image: repeating-linear-gradient(135deg, rgba(0,177,135,.08) 0 12px, transparent 12px 24px); display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box"><span style="padding: 5px 10px; border-radius: 999px; background: var(--accent); color: #0d1218; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Depois</span></div>
+</div>
+<span style="font-size: 14px; color: #b9c2d0; font-weight: 600">Camila · 6 meses · exemplo fictício</span>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 8px">
+<div style="flex: 1 1 0; min-width: 0; height: 340px; border-radius: 16px 4px 4px 16px; border: 1px solid rgba(255,255,255,.1); background-color: color-mix(in srgb, var(--ground) 70%, black); background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 12px, transparent 12px 24px); display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box"><span style="padding: 5px 10px; border-radius: 999px; background: rgba(0,0,0,.55); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Antes</span></div>
+<div style="flex: 1 1 0; min-width: 0; height: 340px; border-radius: 4px 16px 16px 4px; border: 1px solid rgba(0,177,135,.45); background-color: color-mix(in srgb, var(--ground) 70%, black); background-image: repeating-linear-gradient(135deg, rgba(0,177,135,.08) 0 12px, transparent 12px 24px); display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box"><span style="padding: 5px 10px; border-radius: 999px; background: var(--accent); color: #0d1218; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Depois</span></div>
+</div>
+<span style="font-size: 14px; color: #b9c2d0; font-weight: 600">Juliana · 4 meses · exemplo fictício</span>
+</div>
+</div>
+</section>
+
+<!-- PLANOS -->
+<section id="planos" style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; display: flex; flex-direction: column; gap: 56px">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent)">Planos</span>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 56px; line-height: 1.02; text-transform: uppercase">Escolha como quer treinar</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #b9c2d0">Planos e preços fictícios, apenas para visualizar a apresentação. Valores, duração e benefícios serão definidos.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch">
+<div style="flex: 1 1 300px; min-width: 0; padding: 36px; border-radius: 24px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03); display: flex; flex-direction: column; gap: 20px">
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 28px; text-transform: uppercase">Essencial</h3>
+<div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 56px; line-height: 1" data-field="price1">R$ 149<span style="font-size: 18px; font-weight: 600; color: #8f99a9; font-family: 'Manrope', sans-serif">/mês</span></div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 15px; color: #c4ccd8; flex: 1">
+<li>Planejamento de treino individual</li>
+<li>Vídeos de execução dos exercícios</li>
+<li>Revisão mensal do treino</li>
+</ul>
+<a data-whatsapp class="od-ghost" href="#contato" style="text-align: center; padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.25); font-weight: 800; font-size: 15px">Escolher este plano</a>
+</div>
+<div class="od-beam" style="flex: 1 1 300px; min-width: 0; border-radius: 26px">
+<div class="od-beam-in" style="padding: 36px; border-radius: 24px; background: color-mix(in srgb, var(--ground) 80%, black); display: flex; flex-direction: column; gap: 20px; height: calc(100% - 4px); box-sizing: border-box">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 28px; text-transform: uppercase">Evolução</h3>
+<span style="padding: 6px 12px; border-radius: 999px; background: var(--accent); color: #0d1218; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase">Destaque da prévia</span>
+</div>
+<div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 56px; line-height: 1" data-field="price2">R$ 249<span style="font-size: 18px; font-weight: 600; color: #8f99a9; font-family: 'Manrope', sans-serif">/mês</span></div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 15px; color: #d4dae4; flex: 1">
+<li>Treino individual com progressão</li>
+<li>Revisão quinzenal do planejamento</li>
+<li>Suporte para dúvidas de execução</li>
+<li>Acompanhamento da rotina</li>
+</ul>
+<a data-whatsapp class="od-shimmer" href="#contato" style="text-align: center; padding: 16px; border-radius: 12px; background: var(--accent); color: #0d1218; font-weight: 800; font-size: 15px">Escolher este plano</a>
+</div>
+</div>
+<div style="flex: 1 1 300px; min-width: 0; padding: 36px; border-radius: 24px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03); display: flex; flex-direction: column; gap: 20px">
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 28px; text-transform: uppercase">Acompanhamento VIP</h3>
+<div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 56px; line-height: 1" data-field="price3">R$ 399<span style="font-size: 18px; font-weight: 600; color: #8f99a9; font-family: 'Manrope', sans-serif">/mês</span></div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 15px; color: #c4ccd8; flex: 1">
+<li>Todos os itens do plano Evolução</li>
+<li>Encontro online mensal</li>
+<li>Acompanhamento semanal</li>
+</ul>
+<a data-whatsapp class="od-ghost" href="#contato" style="text-align: center; padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.25); font-weight: 800; font-size: 15px">Escolher este plano</a>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="duvidas" style="background: color-mix(in srgb, var(--ground) 72%, black); border-top: 1px solid rgba(255,255,255,.06)">
+<div style="max-width: 860px; margin: 0 auto; padding: 112px 24px; display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent)">Dúvidas frequentes</span>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 56px; line-height: 1.02; text-transform: uppercase">Antes de começar</h2><p style="margin: 0; color: #b9c2d0; font-size: 15px; line-height: 1.7">Respostas ilustrativas, sujeitas à validação.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<details class="od-faq" style="border-radius: 16px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03); padding: 4px 24px">
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; font-size: 17px; font-weight: 700">Nunca treinei. Posso começar?
+<svg class="od-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></summary>
+<p style="margin: 0; padding: 0 0 20px; font-size: 15px; line-height: 1.75; color: #b9c2d0">Exemplo de resposta: sim! A proposta é começar a partir da sua experiência e adaptar o planejamento à sua rotina. O funcionamento do atendimento será definido.</p>
+</details>
+<details class="od-faq" style="border-radius: 16px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03); padding: 4px 24px">
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; font-size: 17px; font-weight: 700">Quantas vezes por semana preciso treinar?
+<svg class="od-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></summary>
+<p style="margin: 0; padding: 0 0 20px; font-size: 15px; line-height: 1.75; color: #b9c2d0">Exemplo de resposta: a frequência é combinada conforme sua disponibilidade e seu objetivo. O planejamento final é definido na conversa inicial.</p>
+</details>
+<details class="od-faq" style="border-radius: 16px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03); padding: 4px 24px">
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; font-size: 17px; font-weight: 700">Onde acontecem os treinos?
+<svg class="od-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></summary>
+<p style="margin: 0; padding: 0 0 20px; font-size: 15px; line-height: 1.75; color: #b9c2d0">Exemplo de resposta: na consultoria online, você pode seguir o treino na academia em que já treina. Modalidades e locais de atendimento serão definidos.</p>
+</details>
+<details class="od-faq" style="border-radius: 16px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03); padding: 4px 24px">
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; font-size: 17px; font-weight: 700">Como funciona a avaliação inicial?
+<svg class="od-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></summary>
+<p style="margin: 0; padding: 0 0 20px; font-size: 15px; line-height: 1.75; color: #b9c2d0">Exemplo de resposta: começamos com uma conversa sobre seus objetivos, rotina e histórico de treino. Formato, duração e valores dessa etapa serão definidos.</p>
+</details>
+</div>
+</div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contato" style="position: relative; background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px); background-size: 26px 26px; border-top: 1px solid rgba(255,255,255,.06)">
+<div class="od-glow" style="position: absolute; left: 50%; top: 50%; width: 720px; height: 420px; margin-left: -360px; margin-top: -210px; border-radius: 50%; background: radial-gradient(circle, rgba(0,177,135,.3), transparent 70%)"></div>
+<div style="position: relative; max-width: 860px; margin: 0 auto; padding: 120px 24px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 72px; line-height: 1; text-transform: uppercase">Chega de adiar. <span class="od-gradtext">Vamos começar?</span></h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #b9c2d0; max-width: 560px">Chame no WhatsApp, conte sua meta e agende sua avaliação. A resposta é direta, sem compromisso.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center">
+<a data-whatsapp class="od-shimmer" href="#contato" style="display: inline-flex; align-items: center; gap: 10px; padding: 20px 38px; border-radius: 14px; background: var(--accent); color: #0d1218; font-weight: 800; font-size: 17px">
+Chamar no WhatsApp
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a data-whatsapp class="od-ghost" data-instagram href="#contato" style="display: inline-flex; align-items: center; gap: 10px; padding: 20px 30px; border-radius: 14px; border: 1px solid rgba(255,255,255,.22); font-weight: 700; font-size: 17px">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.500" cy="6.500" r="1" fill="currentColor"></circle></svg>
+<span data-field="instagramLabel">@personal_exemplo</span>
+</a>
+</div>
+<span style="font-size: 14px; color: #8f99a9">Contato demonstrativo · personalize antes de publicar</span>
+</div>
+</section>
+
+<!-- RODAPÉ -->
+<footer style="background: color-mix(in srgb, var(--ground) 60%, black); border-top: 1px solid rgba(255,255,255,.08)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 36px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; color: #8f99a9">
+<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.04em; text-transform: uppercase; color: #f4f6f8" data-field="brandName">Studio Personal</span>
+<span>Marina Costa · Personal Trainer</span>
+<a data-whatsapp class="od-link" data-instagram href="#contato" style="font-weight: 700">Instagram <span data-field="instagramLabel">@personal_exemplo</span></a>
+</div>
+</footer>
+
+</div>
+
+
+<script src="./config.js"></script><script src="../compartilhado/personalizar.js"></script></body>
+</html>

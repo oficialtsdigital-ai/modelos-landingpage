@@ -1,0 +1,7 @@
+.demo-banner{background:#eaf1f5;color:#17222d;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px max(20px,calc((100% - 1200px)/2));font:500 11px/1.5 'Manrope',sans-serif;position:relative;z-index:5}
+.demo-banner a{font-weight:800;text-decoration:none;color:inherit;min-height:32px;display:flex;align-items:center;white-space:nowrap}
+.demo-contact{max-width:600px;margin:24px auto;padding:20px;border:1px solid #22b9ed80;border-radius:6px;color:#f3f6fa!important;font-size:14px;text-align:center;background:#111b25}
+.demo-mark{display:inline-grid;place-items:center;flex-shrink:0;width:60px;height:42px;background:#071018;color:var(--accent);font:800 25px/1 'Barlow Condensed',sans-serif;border:1px solid #ffffff22;border-radius:5px;letter-spacing:-.05em}
+.hero-art>.demo-mark{margin:48px 0 24px;width:100px;height:80px;font-size:52px}
+.coach-brand>.demo-mark{margin:28px 0 40px;width:100px;height:72px;font-size:44px}
+@media(max-width:767px){.demo-banner{align-items:flex-start;font-size:10px}.demo-banner span{max-width:220px;text-align:right}.hero-art>.demo-mark{margin:24px 0 18px;width:76px;height:60px;font-size:40px}.coach-brand>.demo-mark{margin:20px 0 28px}}

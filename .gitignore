@@ -1,0 +1,8 @@
+publicar/
+catalogo-cloudflare.zip
+caique-cloudflare.zip
+*-preview.png
+preview-*.png
+ferramentas/verificar.cjs
+node_modules/
+.wrangler/
