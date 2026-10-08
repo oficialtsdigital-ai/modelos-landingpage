@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "build": "node ferramentas/preparar-publicacao.cjs",
-    "deploy": "npm run build && npx wrangler deploy"
+    "deploy": "npm run build && npx wrangler deploy",
+    "deploy:caique": "npx wrangler deploy --config ferramentas/team-oliver.wrangler.jsonc",
+    "deploy:catalogo": "npx wrangler deploy --config catalogo.wrangler.jsonc"
   }
 }

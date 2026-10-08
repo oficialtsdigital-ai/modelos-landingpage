@@ -1,8 +1,8 @@
-// Monta publicar/ só com o catálogo e os modelos de demonstração (clientes ficam de fora).
+// Monta publicar/ com o catálogo, modelos e clientes autorizados para apresentação.
 const fs = require('fs'), path = require('path');
 const root = path.resolve(__dirname, '..'), dest = path.join(root, 'publicar');
 const files = ['index.html', 'catalogo.css'];
-const dirs = ['modelo01', 'modelo02', 'modelo03', 'modelo04', 'modelo05', 'modelo06', 'compartilhado'];
+const dirs = ['modelo01', 'modelo02', 'modelo03', 'modelo04', 'modelo05', 'modelo06', 'compartilhado', 'assets/catalogo', 'clientes/caique'];
 for (const item of [...files, ...dirs]) {
   if (!fs.existsSync(path.join(root, item))) { console.error('ERRO: não encontrei "' + item + '" no projeto.'); process.exit(1); }
 }
@@ -14,4 +14,4 @@ fs.writeFileSync(path.join(dest, '_headers'), [
   '/*', '  X-Content-Type-Options: nosniff', '  Referrer-Policy: strict-origin-when-cross-origin', '',
   '/compartilhado/fonts/*', '  Cache-Control: public, max-age=31536000, immutable', ''
 ].join('\n'));
-console.log('Catálogo preparado em publicar/. Clientes não são incluídos.');
+console.log('Catálogo preparado em publicar/. Página pública de Caique incluída em /clientes/caique/.');

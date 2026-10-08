@@ -1,6 +1,10 @@
 {
-  "name": "personal-odam",
+  "name": "modelos-landingpage",
   "compatibility_date": "2025-01-01",
-  "build": { "command": "node ferramentas/preparar-publicacao.cjs" },
-  "assets": { "directory": "./publicar" }
+  "build": {
+    "command": "node ferramentas/preparar-publicacao.cjs"
+  },
+  "assets": {
+    "directory": "./publicar"
+  }
 }

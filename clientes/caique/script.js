@@ -1,6 +1,6 @@
 const message = 'Olá! Encontrei o Team Oliver e tenho interesse na consultoria online. Pode me explicar como funciona?';
 document.querySelectorAll('.whatsapp').forEach(link => {
-  link.href = 'https://wa.me/5571999749078?text=' + encodeURIComponent(message);
+  link.href = 'https://wa.me/5571999749078?text=' + encodeURIComponent(link.dataset.plan ? 'Olá! Tenho interesse no plano ' + link.dataset.plan + ' do Team Oliver. Pode confirmar os valores e as condições?' : message);
 });
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('#menu');

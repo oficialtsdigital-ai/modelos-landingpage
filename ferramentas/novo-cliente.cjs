@@ -14,4 +14,5 @@ fs.writeFileSync(path.join(target,'index.html'),html);
 const configPath=path.join(target,'config.js');
 const config=fs.readFileSync(configPath,'utf8').replace('"demo": true','"demo": false');
 fs.writeFileSync(configPath,config);
+fs.writeFileSync(path.join(root,'ferramentas',slug+'.wrangler.jsonc'),JSON.stringify({name:slug,compatibility_date:'2025-01-01',assets:{directory:'../clientes/'+slug}},null,2)+'\n');
 console.log('Cópia criada: clientes/'+slug+'/index.html. Edite config.js e personalize textos e fotos.');
