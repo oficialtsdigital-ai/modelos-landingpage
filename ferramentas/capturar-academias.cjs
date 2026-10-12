@@ -8,7 +8,7 @@ const root=path.resolve(__dirname,'..'),out=path.join(root,'output/ts-expansao/f
  const browser=await chromium.launch({headless:true,channel:'msedge'});
  try{
   const page=await browser.newPage();
-  for(const id of ['iron-force','viva-fit','pulse-studio']){
+  for(const id of ['iron-force','viva-fit','pulse-studio','movimento-performance']){
    await page.setViewportSize({width:1440,height:1000});
    await page.goto(pathToFileURL(path.join(root,'modelos/academias',id,'index.html')).href,{waitUntil:'networkidle'});
    await page.evaluate(()=>document.fonts.ready);

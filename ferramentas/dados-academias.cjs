@@ -34,5 +34,6 @@ module.exports = {
       sex:[['07:00','Functional Club','Movimento completo','45 min'],['12:30','PULSE Strength','Força em grupo','45 min'],['18:00','Ride Session','Bike indoor','50 min']],
       sab:[['09:00','Weekend Club','Funcional em grupo','50 min'],['10:00','Mobility Flow','Mobilidade','40 min']]
     }
-  }
+  },
+  'movimento-performance': {}
 };

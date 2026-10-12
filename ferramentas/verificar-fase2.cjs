@@ -23,7 +23,7 @@ function inspectPublicFiles(){
   page.on('requestfailed',r=>failed.push({url:r.url(),error:r.failure()?.errorText}));
   page.on('response',r=>{if(r.status()>=400)failed.push({url:r.url(),status:r.status()})});
   await page.goto(base,{waitUntil:'networkidle'});
-   assert(data.projects.length===15&&data.projects.filter(p=>p.category==='academias').length===3,'Galeria inconsistente após a fase 4');
+   assert(data.projects.length===16&&data.projects.filter(p=>p.category==='academias').length===4,'Galeria inconsistente após a fase 4');
    assert(data.projects.filter(p=>p.category==='personal').length===6&&data.projects.filter(p=>p.category==='saude').length===3&&data.plannedModels.length===9,'Páginas preservadas ou planejamento incorretos');
   for(const planned of data.plannedModels){assert((await page.request.get(new URL(planned.url,base).href)).status()===404,'Página planejada exposta: '+planned.id);assert(await page.locator(`[data-project="${planned.id}"]`).count()===0,'Modelo planejado na galeria');}
   assert(await page.locator('h1').textContent()==='Sites reais, feitos para o seu negócio.','Posicionamento limita o público');
@@ -33,7 +33,7 @@ function inspectPublicFiles(){
   const org=JSON.parse(await page.locator('script[type="application/ld+json"]').textContent())['@graph'].find(x=>x['@type']==='Organization');
   assert(org.address.addressLocality==='Seabra'&&!org.address.streetAddress&&!org.areaServed,'Sede incorreta ou área de atendimento limitada');
   await page.locator('[data-filter="academias"]').click();
-  assert(await page.locator('[data-project]:visible').count()===3,'Filtro de academias incompleto');
+  assert(await page.locator('[data-project]:visible').count()===4,'Filtro de academias incompleto');
   for(const model of data.projects.filter(p=>p.category==='academias')){
    const card=page.locator(`[data-project="${model.id}"]`);
    assert(await card.isVisible(),'Card invisível: '+model.id);

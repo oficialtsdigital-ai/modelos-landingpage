@@ -148,7 +148,7 @@ Os dois catálogos compartilham a mesma estética e os mesmos arquivos. npm run 
 
 ## Academias — Fase 2
 
-Rotas: /modelos/academias/iron-force/, /modelos/academias/viva-fit/ e /modelos/academias/pulse-studio/. São páginas completas e fictícias, com imagens ilustrativas geradas, planos demonstrativos, FAQ e simulação de visitas ou reservas. Os contatos de orçamento usam a configuração da TS Digital.
+Rotas: /modelos/academias/iron-force/, /modelos/academias/viva-fit/, /modelos/academias/pulse-studio/ e /modelos/academias/movimento-performance/. São páginas demonstrativas com planos, FAQ e interações simuladas. Os contatos de orçamento usam a configuração da TS Digital.
 
 Dados comerciais em ferramentas/dados-academias.cjs; HTML estático gerado por ferramentas/renderizar-demonstracoes.cjs durante o build. A proposta anterior de academia foi arquivada em output/arquivo-clientes/cliente-anterior/. A pasta output está ignorada no Git e não entra no pacote público. A antiga rota não é incluída nem redirecionada. Uma implantação já existente não foi alterada.
 

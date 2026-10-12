@@ -372,6 +372,32 @@
       "goal": "Facilitar a escolha de modalidades e a consulta da agenda."
     },
     {
+      "id": "movimento-performance",
+      "name": "MOVIMENTO PERFORMANCE",
+      "category": "academias",
+      "url": "./modelos/academias/movimento-performance/index.html",
+      "style": "Dark / Performance / Editorial",
+      "palette": [
+        "#0B0D0D",
+        "#F4C443",
+        "#F4F3ED",
+        "#151818"
+      ],
+      "description": "Um modelo de academia com foco em musculação, planos em abas e fotografia de treino.",
+      "image": "./assets/catalogo/movimento-performance.webp",
+      "resources": [
+        "Planos em abas",
+        "Apresentação do treino",
+        "FAQ"
+      ],
+      "type": "Site de academia",
+      "status": "demonstracao",
+      "label": "MOVIMENTO",
+      "paletteName": "Preto e dourado",
+      "focus": "Musculação e performance",
+      "goal": "Apresentar planos, estrutura e informações de uma academia."
+    },
+    {
       "id": "odonto-prime",
       "name": "ODONTO PRIME",
       "category": "saude",

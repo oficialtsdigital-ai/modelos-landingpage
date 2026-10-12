@@ -60,9 +60,9 @@ function inspectPrivacy(id){
   page.on('requestfailed',r=>failed.push({url:r.url(),error:r.failure()?.errorText}));
   page.on('response',r=>{if(r.status()>=400)failed.push({url:r.url(),status:r.status()})});
   await page.goto(base,{waitUntil:'networkidle'});
-  assert(data.projects.length===15&&data.plannedModels.length===9,'Galeria da fase 4 incompleta');
+  assert(data.projects.length===16&&data.plannedModels.length===9,'Galeria da fase 4 incompleta');
   assert(data.projects.filter(p=>p.category==='restaurantes').length===3,'Modelos de restaurantes ausentes da galeria');
-  assert(data.projects.filter(p=>p.category==='personal').length===6&&data.projects.filter(p=>p.category==='academias').length===3&&data.projects.filter(p=>p.category==='saude').length===3,'Modelos anteriores não preservados');
+  assert(data.projects.filter(p=>p.category==='personal').length===6&&data.projects.filter(p=>p.category==='academias').length===4&&data.projects.filter(p=>p.category==='saude').length===3,'Modelos anteriores não preservados');
   assert(data.projects.filter(p=>p.category==='restaurantes').every(p=>p.status==='demonstracao'&&p.image&&p.resources?.length&&p.type&&p.label&&p.paletteName),'Metadados dos restaurantes incompletos');
   for(const planned of data.plannedModels){
    assert((await page.request.get(new URL(planned.url,base).href)).status()===404,'Página planejada exposta: '+planned.id);

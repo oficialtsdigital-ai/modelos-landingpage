@@ -46,9 +46,9 @@ function inspectPrivacy(file){
   page.on('requestfailed',r=>failed.push({url:r.url(),error:r.failure()?.errorText}));
   page.on('response',r=>{if(r.status()>=400)failed.push({url:r.url(),status:r.status()})});
   await page.goto(base,{waitUntil:'networkidle'});
-   assert(data.projects.length===15&&data.plannedModels.length===9,'Galeria inconsistente após a fase 4');
+   assert(data.projects.length===16&&data.plannedModels.length===9,'Galeria inconsistente após a fase 4');
   assert(data.projects.filter(p=>p.category==='saude').length===3,'Modelos de saúde ausentes da galeria');
-  assert(data.projects.filter(p=>p.category==='personal').length===6&&data.projects.filter(p=>p.category==='academias').length===3,'Modelos anteriores não preservados');
+  assert(data.projects.filter(p=>p.category==='personal').length===6&&data.projects.filter(p=>p.category==='academias').length===4,'Modelos anteriores não preservados');
   assert(data.projects.filter(p=>p.category==='saude').every(p=>p.status==='demonstracao'&&p.image&&p.resources?.length&&p.type&&p.label&&p.paletteName),'Metadados dos modelos de saúde incompletos');
   for(const planned of data.plannedModels){
    assert((await page.request.get(new URL(planned.url,base).href)).status()===404,'Página planejada exposta: '+planned.id);
