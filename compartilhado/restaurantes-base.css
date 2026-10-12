@@ -1,0 +1,152 @@
+/* Base comum dos modelos de restaurantes (Fase 4).
+   Componentes compartilhados: topbar, cardápio, reserva, FAQ, rodapé.
+   A paleta de cada modelo é definida em styles.css via variáveis. */
+
+/* ---------- topo ---------- */
+.site-header{position:sticky;top:0;z-index:40;border-bottom:1px solid var(--line);background:var(--surface)}
+.header-inner{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:26px}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:inherit;flex-shrink:0}
+.brand-mark{width:34px;height:34px;flex-shrink:0}
+.brand-mark svg{width:100%;height:100%;display:block;fill:none;stroke:currentColor;stroke-width:1.5}
+.brand-name{font-family:var(--display);font-size:clamp(15px,1.5vw,18px);letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.brand-name em{font-style:normal;color:var(--accent)}
+.site-nav{display:flex;align-items:center;gap:clamp(14px,2vw,28px);font-size:12.5px;font-weight:600}
+.site-nav>a:not(.nav-cta){min-height:44px;display:inline-flex;align-items:center;text-decoration:none;color:inherit;position:relative}
+.site-nav>a:not(.nav-cta)::after{content:"";position:absolute;left:0;right:100%;bottom:12px;height:1.5px;background:var(--accent);transition:right .3s ease}
+.site-nav>a:not(.nav-cta):hover::after,.site-nav>a:not(.nav-cta):focus-visible::after{right:0}
+.nav-cta{display:inline-flex;align-items:center;gap:14px;min-height:46px;padding:11px 18px;border:1px solid currentColor;text-decoration:none;color:inherit;transition:background .2s,color .2s,border-color .2s}
+.nav-cta:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.nav-toggle{display:none;align-items:center;gap:10px;min-height:44px;padding:9px 14px;background:none;border:1px solid currentColor;color:inherit;font:inherit;font-size:12.5px;font-weight:600;cursor:pointer}
+.nav-toggle .bars{width:18px;display:grid;gap:4px}
+.nav-toggle .bars span{display:block;height:1.5px;background:currentColor;transition:transform .25s,opacity .25s}
+.nav-toggle[aria-expanded="true"] .bars span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] .bars span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] .bars span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+
+/* ---------- botões ---------- */
+.button{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:56px;padding:16px 22px;background:var(--ink);color:var(--paper);border:1px solid transparent;font:750 13px/1.5 var(--body);text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
+.button:hover{background:var(--accent);color:var(--on-accent)}
+.button--ghost{background:none;color:inherit;border-color:currentColor}
+.button--ghost:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.button .icon{width:19px;height:19px;flex-shrink:0}
+.text-link{display:inline-flex;align-items:center;gap:18px;min-height:44px;font-size:13px;font-weight:700;color:inherit;text-decoration:underline;text-underline-offset:6px}
+.text-link:hover{text-decoration-thickness:2px;text-decoration-color:var(--accent)}
+.text-link .icon{width:17px;height:17px}
+
+/* ---------- utilitários de seção ---------- */
+.section-intro{font-size:12px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-bottom:clamp(34px,5vw,58px)}
+.section-heading h2{font-family:var(--display);font-weight:var(--display-weight,600);font-size:clamp(30px,5vw,58px);line-height:1.02;letter-spacing:var(--display-tracking,-.01em);text-transform:var(--display-transform,none)}
+.section-heading>p{max-width:390px;font-size:14px;line-height:1.85;color:var(--muted)}
+.demo-note{font-size:11.5px;line-height:1.85;color:var(--muted)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- faixa de valores ---------- */
+.value-band{border-block:1px solid var(--line);background:var(--surface-2)}
+.value-band .wrap{display:flex;flex-wrap:wrap;gap:12px 40px;padding-block:20px}
+.value-band p{display:inline-flex;align-items:center;gap:11px;font-size:12.5px;font-weight:650;letter-spacing:.04em}
+.value-band .icon{width:17px;height:17px;color:var(--accent);flex-shrink:0}
+
+/* ---------- marquee ---------- */
+.marquee-band{border-block:1px solid var(--line);background:var(--ink);color:var(--paper);overflow:hidden}
+.marquee{padding-block:15px}
+.marquee-track{gap:0;font-family:var(--display);font-size:clamp(15px,2vw,22px);letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
+.marquee-track span{display:inline-flex;align-items:center;padding-inline:26px}
+.marquee-track span::after{content:"";width:7px;height:7px;margin-left:26px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* ---------- cardápio ---------- */
+.menu-board{border-top:1px solid var(--line)}
+.menu-section{padding-block:clamp(30px,4.5vw,48px);border-bottom:1px solid var(--line)}
+.menu-section-head{margin-bottom:clamp(18px,2.5vw,28px)}
+.menu-kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.menu-section-head h3{font-family:var(--display);font-weight:var(--display-weight,600);font-size:clamp(24px,3.4vw,38px);line-height:1.05;letter-spacing:var(--display-tracking,0);text-transform:var(--display-transform,none)}
+.menu-list{list-style:none;margin:0;padding:0}
+.menu-item{display:block;padding:18px 16px 18px 0;border-bottom:1px dashed var(--line);transition:background .25s,padding-left .25s;outline-offset:-2px}
+.menu-list li:last-child{border-bottom:0}
+.menu-item:hover,.menu-item.is-active{background:var(--surface-2);padding-left:16px}
+.menu-item:focus-visible{background:var(--surface-2)}
+.menu-item-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px}
+.menu-item-head h4{font-family:var(--body);font-size:clamp(15px,1.7vw,17.5px);font-weight:700;line-height:1.4}
+.menu-price{font-family:var(--display);font-weight:700;font-size:clamp(16px,1.9vw,19px);color:var(--accent);white-space:nowrap;flex-shrink:0;font-variant-numeric:tabular-nums}
+.menu-desc{margin-top:7px;max-width:62ch;font-size:13.5px;line-height:1.75;color:var(--muted)}
+.menu-tag{display:inline-block;margin-top:9px;padding:4px 10px;border:1px solid var(--line);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.menu-seal{display:flex;align-items:flex-start;gap:12px;padding:16px 18px;border:1px dashed var(--accent);font-size:12.5px;line-height:1.75;color:var(--muted)}
+.menu-seal .icon{width:18px;height:18px;color:var(--accent);flex-shrink:0;margin-top:2px}
+
+/* ---------- reserva ---------- */
+.reserve-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:start}
+.reserve-card{padding:clamp(24px,3vw,38px);border:1px solid var(--line);background:var(--surface-2)}
+.reserve-card h3{font-family:var(--display);font-size:clamp(20px,2.4vw,26px);margin-bottom:10px}
+.reserve-card>p{font-size:13.5px;line-height:1.8;color:var(--muted);margin-bottom:22px}
+.reserve-form{display:grid;gap:16px}
+.field{display:grid;gap:7px}
+.field label{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.field select{min-height:48px;padding:11px 14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:14px;border-radius:0}
+.field select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.reserve-status{font-size:12px;color:var(--muted);margin-top:14px}
+.detail-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.detail-list li{display:flex;align-items:flex-start;gap:13px;font-size:13.5px;line-height:1.7}
+.detail-list .icon{width:18px;height:18px;color:var(--accent);flex-shrink:0;margin-top:3px}
+.detail-block h3{font-family:var(--body);font-size:15px;font-weight:750;margin-bottom:14px}
+.hours{margin:0}
+.hours div{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.hours dt{color:var(--muted)}
+.hours dd{margin:0;font-weight:700}
+.location-note{font-size:13px;line-height:1.85;color:var(--muted);margin-top:16px}
+
+/* ---------- diálogo ---------- */
+.demo-dialog{width:min(560px,calc(100% - 32px));padding:0;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.demo-dialog::backdrop{background:rgba(10,8,6,.72)}
+.demo-dialog[open]{display:block}
+.demo-dialog-inner{padding:clamp(26px,4vw,40px)}
+.demo-dialog h2{font-family:var(--display);font-size:clamp(21px,2.6vw,27px);line-height:1.15;margin-bottom:14px}
+.demo-dialog p{font-size:13.5px;line-height:1.8;color:var(--muted);margin-bottom:14px}
+.demo-choice{color:var(--ink);font-weight:650}
+.demo-dialog [data-demo-message][data-tone="alert"]{color:#B3311F}
+.demo-dialog [data-demo-message][data-tone="ok"]{color:#2F6B45}
+.demo-dialog-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.demo-dialog-actions .button{flex:1 1 220px}
+
+/* ---------- FAQ ---------- */
+.faq-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,6vw,90px)}
+.faq-list details{border-bottom:1px solid var(--line)}
+.faq-list summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:70px;padding:20px 0;font-size:14.5px;font-weight:650}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary>span{font-size:22px;line-height:1;font-weight:400;color:var(--accent);transition:transform .25s;flex-shrink:0}
+.faq-list details[open] summary>span{transform:rotate(45deg)}
+.faq-list details>p{font-size:13.5px;line-height:1.85;padding:0 32px 22px 0;max-width:64ch;color:var(--muted)}
+
+/* ---------- rodapé ---------- */
+.site-footer{border-top:1px solid var(--line);padding-block:clamp(28px,4vw,40px)}
+.footer-layout{display:flex;align-items:center;justify-content:space-between;gap:34px;flex-wrap:wrap}
+.footer-brand{font-family:var(--display);font-size:clamp(16px,2vw,20px);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:inherit}
+.footer-layout .demo-note{max-width:460px}
+.footer-layout>a:last-child{font-size:12.5px;font-weight:750;min-height:44px;display:inline-flex;align-items:center;gap:14px;color:inherit;text-decoration:underline;text-underline-offset:6px}
+
+/* ---------- responsivo ---------- */
+@media(max-width:1100px){
+  .site-nav{gap:16px;font-size:11.5px}
+  .section-heading{gap:32px}
+  .faq-layout{gap:48px}
+}
+@media(max-width:900px){
+  .nav-toggle{display:inline-flex}
+  .site-nav{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:0;padding:8px 0 16px;background:var(--surface);border-bottom:1px solid var(--line);font-size:14px;box-shadow:0 18px 30px rgba(0,0,0,.08)}
+  .site-nav.is-open{display:flex}
+  .site-nav>a:not(.nav-cta){padding:12px 20px}
+  .site-nav>a:not(.nav-cta)::after{display:none}
+  .site-nav .nav-cta{margin:10px 20px 0;justify-content:space-between}
+  .header-inner{position:relative;min-height:74px}
+  .reserve-layout{grid-template-columns:1fr}
+  .faq-layout{grid-template-columns:1fr;gap:30px}
+  .section-heading{display:block}
+  .section-heading>p{max-width:560px;margin-top:20px}
+  .footer-layout{gap:24px}
+}
+@media(max-width:600px){
+  .menu-item-head{gap:14px}
+  .menu-desc{font-size:13px}
+  .value-band .wrap{gap:10px 24px;padding-block:16px}
+  .hours div{font-size:12.5px}
+  .footer-layout>a:last-child{font-size:12px}
+}

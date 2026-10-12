@@ -1,0 +1,20 @@
+:root{--ink:#142B45;--accent:#C6A76A;--paper:#FFFFFF;--surface:#FFFFFF;--muted:#536375;--line:#DCE2E8;--focus:#9A7836;--hover:#264563;--on-accent:#142B45;--display:'DM Serif Display',serif;--body:Manrope,sans-serif}
+.health-brand{font:500 20px/1.2 var(--body);letter-spacing:.08em}.health-brand strong{font-weight:800}.health-brand svg{color:#9A7836}
+.header-inner{min-height:86px}.health-nav .nav-cta{border-color:var(--ink);background:var(--ink);color:white}
+.prime-hero{background:var(--ink);color:white}.prime-hero-layout{display:grid;grid-template-columns:1fr 1.1fr;align-items:stretch;gap:60px;padding-block:48px}
+.prime-hero .hero-copy{padding-block:38px;align-self:center}.hero-label{font-size:13px;font-weight:650;color:#E1C997;margin-bottom:22px}
+.prime-hero h1{font-size:clamp(48px,5.15vw,74px);max-width:14ch;line-height:1.07}.prime-hero .hero-lede{color:#DDE5EE;font-size:16px;max-width:39ch}
+.prime-hero .button{background:var(--accent);color:var(--ink)}.prime-hero .button:hover{background:#E2C68D}.prime-hero .text-link{color:white;font-size:13px}.prime-hero .hero-note{color:#C4D0DE}
+.prime-hero .hero-media{min-height:530px;border-radius:3px}.prime-hero .hero-media img{object-position:54% center}.prime-hero .hero-media figcaption{font-size:11px}
+.care-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:60px}.care-row{display:flex;align-items:start;gap:20px;padding:30px 0;border-top:1px solid var(--line)}
+.care-row>.icon{width:30px;height:30px;color:#9A7836;margin-top:4px}.care-row h3{font:750 18px/1.4 var(--body);margin-bottom:12px}.care-row p{font-size:14px;color:var(--muted);line-height:1.8;max-width:40ch}
+.care-row>a{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center;flex-shrink:0;margin-left:auto;transition:background .2s,border-color .2s}.care-row>a:hover{background:#F3EEE4;border-color:var(--accent)}
+.prime-profile{background:#F4F6F8}.hero-portrait img{aspect-ratio:1.05;object-fit:cover;object-position:center 30%}.prime-profile .hero-portrait{max-width:540px}.prime-profile .editorial-copy>p{max-width:47ch}
+.profile-name{margin-bottom:7px}.profile-initial{color:#8A692F;background:#FBF7EF;border-color:#D8C59F}.clinic-photo img{aspect-ratio:.98;object-fit:cover}
+.faq-section{background:#F4F6F8}.contact-section{background:#142B45;color:white;--line:#53647A;--muted:#D4DDE7}
+.contact-section .section-intro{color:#E1C997}.contact-section .button{background:var(--accent);color:#142B45}.contact-section .hero-note{color:#C6D2E0}.contact-section .location-block .icon{color:var(--accent)}
+.health-footer{border-top:1px solid var(--line)}
+@media(max-width:1100px){.prime-hero-layout{gap:36px}.prime-hero h1{font-size:60px}.prime-hero .hero-actions{align-items:start;gap:12px}.care-grid{column-gap:35px}.health-brand{font-size:17px}}
+@media(max-width:850px){.prime-hero-layout{grid-template-columns:1fr;gap:35px;padding-block:40px}.prime-hero .hero-copy{padding:0;max-width:600px}.prime-hero h1{font-size:58px;max-width:13ch}.prime-hero .hero-media{min-height:0;height:360px}.prime-hero .hero-media img{object-position:center 43%}.care-grid{gap:0 25px}.care-row{gap:14px}.care-row>.icon{width:24px;height:24px}.care-row h3{font-size:16px}.prime-profile .hero-portrait{width:100%;max-width:none}.hero-portrait img{aspect-ratio:1.4;object-position:center 35%}}
+@media(max-width:600px){.health-brand{font-size:15px;gap:8px}.health-brand svg{width:30px;height:30px}.header-inner{min-height:74px}.prime-hero-layout{padding-block:36px;gap:30px}.prime-hero h1{font-size:44px;max-width:none}.hero-label{font-size:12px;margin-bottom:18px}.prime-hero .hero-lede{font-size:15px}.prime-hero .hero-media{height:300px}.care-grid{grid-template-columns:1fr}.care-row h3{font-size:17px}.care-row p{font-size:14px}.clinic-photo img{aspect-ratio:1.2}.hero-portrait img{aspect-ratio:1}.contact-section h2{font-size:38px}}
+@media(max-width:359px){.prime-hero h1{font-size:39px}.prime-hero .button{padding-inline:17px;font-size:12px}.health-brand{font-size:13px}}

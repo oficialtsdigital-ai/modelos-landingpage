@@ -6,3 +6,6 @@ preview-*.png
 ferramentas/verificar.cjs
 node_modules/
 .wrangler/
+
+# Evidências, rascunhos e arquivo privado de propostas. Não publicar nem versionar.
+output/

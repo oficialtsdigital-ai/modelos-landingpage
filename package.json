@@ -3,9 +3,15 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "check": "node ferramentas/validar-dados.cjs && node --check dados-site.js && node --check institucional.js && node --check compartilhado/contato-ts.js && node --check compartilhado/demonstracao.js && node --check compartilhado/academias.js && node --check compartilhado/saude.js && node --check compartilhado/restaurantes.js && node --check compartilhado/efeitos.js && node --check compartilhado/apresentacao.js && node --check ferramentas/renderizar-institucional.cjs && node --check ferramentas/preparar-publicacao.cjs && node --check ferramentas/dados-academias.cjs && node --check ferramentas/dados-saude.cjs && node --check ferramentas/dados-restaurantes.cjs && node --check ferramentas/renderizar-demonstracoes.cjs && node --check ferramentas/capturar-saude.cjs && node --check ferramentas/capturar-restaurantes.cjs && node --check ferramentas/gerar-imagens-restaurantes.cjs && node --check ferramentas/verificar-fase3.cjs && node --check ferramentas/verificar-fase4.cjs && node --check compartilhado/personais.js && node --check ferramentas/renderizar-personais.cjs && node --check ferramentas/renderizar-vitrine.cjs && node --check ferramentas/cabecalhos.cjs",
     "build": "node ferramentas/preparar-publicacao.cjs",
+    "preview": "npm run build && node ferramentas/preview-site.cjs",
     "deploy": "npm run build && npx wrangler deploy",
     "deploy:caique": "npx wrangler deploy --config ferramentas/team-oliver.wrangler.jsonc",
-    "deploy:catalogo": "npx wrangler deploy --config catalogo.wrangler.jsonc"
+    "deploy:catalogo": "npx wrangler deploy --config catalogo.wrangler.jsonc",
+    "test:academias": "node ferramentas/verificar-fase2.cjs",
+    "test:saude": "node ferramentas/verificar-fase3.cjs",
+    "test:restaurantes": "node ferramentas/verificar-fase4.cjs",
+    "test:institucional": "node ferramentas/verificar-institucional.cjs"
   }
 }

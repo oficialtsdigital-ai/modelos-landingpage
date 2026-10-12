@@ -1,0 +1,140 @@
+/* Estilos do motor de efeitos — sem dependências externas.
+   Regra de ouro: sem a classe .fx-ready (adicionada só quando o JS
+   inicializa com sucesso) nenhum conteúdo fica oculto. */
+
+/* ---------- reveal ---------- */
+.fx-ready [data-reveal]{
+  opacity:0;
+  transition:opacity .8s cubic-bezier(.22,.61,.36,1) var(--fx-delay,0ms),
+             transform .8s cubic-bezier(.22,.61,.36,1) var(--fx-delay,0ms);
+  will-change:opacity,transform;
+}
+.fx-ready [data-reveal="up"]{transform:translateY(26px)}
+.fx-ready [data-reveal="down"]{transform:translateY(-26px)}
+.fx-ready [data-reveal="left"]{transform:translateX(-32px)}
+.fx-ready [data-reveal="right"]{transform:translateX(32px)}
+.fx-ready [data-reveal="scale"]{transform:scale(.94)}
+.fx-ready [data-reveal="blur"]{filter:blur(8px)}
+.fx-ready [data-reveal].is-visible{
+  opacity:1;
+  transform:none;
+  filter:none;
+  will-change:auto;
+}
+
+/* ---------- headline em palavras ---------- */
+.fx-word{
+  display:inline-block;
+  opacity:1;
+}
+.fx-ready .fx-word{
+  opacity:0;
+  transform:translateY(.7em) rotate(2deg);
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1),
+             transform .7s cubic-bezier(.22,.61,.36,1);
+  transition-delay:calc(var(--fx-i,0)*55ms);
+}
+.fx-ready .is-visible .fx-word,
+.fx-ready .fx-word.is-visible{
+  opacity:1;
+  transform:none;
+}
+
+/* ---------- parallax ---------- */
+[data-parallax]{
+  transform:translate3d(0,var(--fx-parallax,0px),0);
+  will-change:transform;
+}
+
+/* ---------- tilt ---------- */
+[data-tilt]{
+  transform:perspective(900px) rotateX(var(--fx-tilt-x,0deg)) rotateY(var(--fx-tilt-y,0deg));
+  transition:transform .5s cubic-bezier(.22,.61,.36,1),box-shadow .4s ease;
+  transform-style:preserve-3d;
+}
+[data-tilt].is-tilting{
+  transition:transform .12s ease-out;
+}
+
+/* ---------- magnético ---------- */
+[data-magnetic]{
+  transform:translate3d(var(--fx-magnet-x,0px),var(--fx-magnet-y,0px),0);
+  transition:transform .45s cubic-bezier(.22,.61,.36,1);
+}
+[data-magnetic].is-magnetized{
+  transition:transform .12s ease-out;
+}
+
+/* ---------- marquee ---------- */
+.marquee{
+  overflow:hidden;
+  display:flex;
+  width:100%;
+}
+.marquee-track{
+  display:flex;
+  align-items:center;
+  flex:0 0 auto;
+  gap:2rem;
+  animation:fx-marquee var(--fx-marquee-duration,28s) linear infinite;
+  will-change:transform;
+}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes fx-marquee{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
+}
+
+/* ---------- barra de progresso ---------- */
+.scroll-progress{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:2px;
+  z-index:120;
+  pointer-events:none;
+}
+.scroll-progress::after{
+  content:"";
+  display:block;
+  height:100%;
+  width:100%;
+  transform:scaleX(var(--fx-progress,0));
+  transform-origin:0 50%;
+  background:var(--fx-progress-color,currentColor);
+}
+
+/* ---------- header que encolhe ---------- */
+.fx-ready [data-header-state]{
+  transition:padding .35s ease,background-color .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+
+/* ---------- utilitário: brilho que segue o ponteiro ---------- */
+.fx-glow{position:relative;overflow:hidden}
+.fx-glow::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .35s ease;
+  background:radial-gradient(360px circle at var(--fx-glow-x,50%) var(--fx-glow-y,50%),
+    var(--fx-glow-color,rgba(255,255,255,.22)),transparent 62%);
+}
+.fx-glow.is-tilting::before{opacity:1}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  .fx-ready [data-reveal],
+  .fx-ready .fx-word{
+    opacity:1 !important;
+    transform:none !important;
+    filter:none !important;
+    transition:none !important;
+  }
+  [data-parallax]{transform:none !important}
+  [data-tilt]{transform:none !important}
+  [data-magnetic]{transform:none !important}
+  .marquee-track{animation:none !important}
+  .scroll-progress::after{transform:none !important}
+  .fx-glow::before{display:none}
+}

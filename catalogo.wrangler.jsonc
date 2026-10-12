@@ -1,5 +1,10 @@
 {
   "name": "ts-digital",
+  "workers_dev": true,
+  "routes": [
+    {"pattern": "tsdigital.com.br", "custom_domain": true},
+    {"pattern": "www.tsdigital.com.br", "custom_domain": true}
+  ],
   "compatibility_date": "2025-01-01",
   "build": {
     "command": "node ferramentas/preparar-publicacao.cjs"

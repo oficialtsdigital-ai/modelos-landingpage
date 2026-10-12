@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /clientes/
+Disallow: /output/
+Disallow: /ferramentas/
+
+Sitemap: https://tsdigital.com.br/sitemap.xml
